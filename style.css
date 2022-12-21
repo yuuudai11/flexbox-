@@ -1,0 +1,88 @@
+.flex {
+  background-color: #00c7ce;
+  height: 50vh;
+  padding: 10px;
+  display: flex;/*displayで横から縦表示になる*/
+  justify-content: center;/*横を中央揃え*/
+  align-items: center;/*縦を中横揃え他にもflex-start,stretch,flex-end,center,baseline*/
+  flex-direction: row;/*要素を縦表示にしたりして、順番も変えられる*/
+  flex-wrap:wrap;/*画面がいっぱいになったとき折り返しして表示する*/
+  flex-flow: row wrap;/*flex-directionとflex-wrapをまとめて指定します*/
+  justify-content: flex-start;/*横方向の整列方法を指定start,end,center,space-between,space-around*/
+  align-content: center;/*flexコンテナーの中身が複数行になった時の整列方法*/
+}
+/*A > BでA直下にあるBを指定する FLEXの下にあるdivのみを指定する*/
+.flex > div {
+  background-color: #fff;
+  margin: 5px;
+  font-size: 30px;
+}
+
+.flex > div:nth-child(1) {
+  order: 3;/*順番を指定する*/
+  flex-grow: 0;/*横幅余白を埋めるように伸びる。数値の比率に従う*/
+  align-self:flex-start;/*Flexアイテムの縦方向の位置を、アイテムごとに個別に指定できます。*/
+}
+
+.flex > div:nth-child(2) {
+  order: 0;
+  flex-grow: 1;
+}
+
+.flex > div:nth-child(3) {
+  order: 2;
+  flex-grow: 2;
+}
+
+.flex > div:nth-child(4) {
+  order: 1;
+  flex-grow: 4;
+}
+/*今回はwrapで要素が下に行くようになっている　no-wrapにすると横いっぱいに伸びる*/
+.flex > div {
+  width: 300px;
+}
+.flex > div:nth-child(1) {
+  flex-shrink: 0;
+}
+.flex > div:nth-child(2) {
+  flex-shrink: 1;
+}
+.flex > div:nth-child(3) {
+  flex-shrink: 2;
+}
+.flex > div:nth-child(4) {
+  flex-shrink: 3;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  /*row:横並び column:縦並び*/
+}
+
+.flex > div {
+  flex-basis: 100px;
+}
+
+/*.flex > div {*/
+  /* 単位がない数値を1つ指定 → flex-growに */
+/*  flex: 2;*/
+  /* 単位のある数値を1つ指定 → flex-basisに */
+/*  flex: 10em;*/
+/*  flex: 30%;*/
+  /* 単位がない数値を2つ指定 → flex-grow | flex-shrink に */
+/*  flex: 2 2;*/
+  /* 値を3つ指定する → 必ず flex-grow | flex-shrink | flex-basis に */
+/*  flex: 2 2 10%;*/
+
+
+/*最初の要素だけ左揃えで、それ以外は右揃えで横に並べる*/
+
+.flex {
+  display: flex;
+  justify-content: flex-end;/*すべて右寄せ*/
+}
+.flex > :first-child {
+  margin-right: auto;/*最初の子要素の右側に自動的に余白を作る*/
+}
